@@ -105,7 +105,7 @@ public MainWindow()
                 textBox1.FontSize -= 2;
             }
         }
------------------------------------------------------------------------------------------   markup extensions
+-----------------------------------------------------------------------------------------   markup extensions:	Windows.Resources
 <Window.Resources>
     <SolidColorBrush Color="Red" x:key="myBrush" />
 </Window.Resources>
@@ -113,8 +113,64 @@ public MainWindow()
     <TextBlock Foreground="{StaticResource myBrush}" Text="First Name" Width="100" Margin="10">
     <TextBlock Foreground="{StaticResource myBrush}" Text="Second Name" Width="100" Margin="10">
 </StackPanel>
------------------------------------------------------------------------------------------
-
------------------------------------------------------------------------------------------
-
+-----------------------------------------------------------------------------------------	markup extensions:	xmlns:index="cls-namespace:namespaceName"
+xmlns:my="cls-namespace:XAMLMarkupExtension"
+<Grid>
+	<Button	Content="{my:MyMarkupExtension FirstStr= Markup SecondStr=Extension}" Width="20" Height="20" />   MyMarkupExtension is a class in namespace XAMLMarkupExtension, and has two variables FirstStr and SecondStr, which are assigned with Markup and Extension.
+</Grid>
+namespace XAMLMarkupExtension { 
+   /// <summary> 
+      /// Interaction logic for MainWindow.xaml 
+   /// </summary> 
+	
+   public partial class MainWindow : Window { 
+      public MainWindow() { 
+         InitializeComponent(); 
+      } 
+   } 
+	
+   public class MyMarkupExtension : MarkupExtension { 
+      public MyMarkupExtension() { } 
+      public String FirstStr { get; set; } 
+      public String SecondStr { get; set; }  
+		
+      public override object ProvideValue(IServiceProvider serviceProvider) { 
+        return FirstStr + " " + SecondStr; 
+      } 
+   } 
+}		
+-----------------------------------------------------------------------------------------	dependency properties
+<Grid>		
+	<Button Width="" Height="" Margin="" Content="Dependency Property">
+		<Button.Style>
+			<Style TargetType="{x:Type button}">
+				<Style.Triggers>
+					<Triggers Property="IsMouseOver" Value="True">
+						<Setter Property="Foreground" Value="red" />						
+					</Triggers>	
+				</Style.Triggers>	
+			</Style>	
+		</Button.Style>
+	</Button>	
+</Grid>		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
