@@ -166,11 +166,65 @@ namespace XAMLMarkupExtension {
 	</Button>	
 </Grid>		
 		
+-----------------------------------------------------------------------------------------	template	
+<Window.Resources>
+
+        <ControlTemplate x:Key = "ButtonTemplate" TargetType = "Button">
+            <Grid>
+                <Ellipse x:Name = "ButtonEllipse" Height = "100" Width = "150" >
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint = "0,0.2" EndPoint = "0.2,1.4">
+                            <GradientStop Offset = "0" Color = "Red"/>
+                            <GradientStop Offset = "1" Color = "Orange"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <ContentPresenter Content = "{TemplateBinding Content}"
+               HorizontalAlignment = "Center" VerticalAlignment = "Center" />
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property = "IsMouseOver" Value = "True">
+                    <Setter TargetName = "ButtonEllipse" Property = "Fill" >
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint = "0,0.2" EndPoint="0.2,1.4">
+                                <GradientStop Offset = "0" Color = "YellowGreen"/>
+                                <GradientStop Offset = "1" Color = "Gold"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property = "IsPressed" Value = "True">
+                    <Setter Property = "RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX = "0.8" ScaleY = "0.8" CenterX = "0" CenterY = "0" />
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property = "RenderTransformOrigin" Value = "0.5,0.5" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <StackPanel>
+        <Button Content = "Round Button!" Template = "{StaticResource ButtonTemplate}" Width = "150" Margin = "50" />
+        <Button Content = "Default Button!" Height = "40" Width = "150" Margin = "5" />
+    </StackPanel>
+Structure:		
+ControlTemplate	x:key=""	TargetType="Button"
+	Grid
+		Ellipse
+			Ellipse.Fill
+				LinearGradientBrush
+					GradientStop
+		ContentPresenter
+	ControlTemplate.Triggers
+		Trigger
+			Setter
+				Setter.Value
+					LinearGradientBrush
+						GradientStop
+		
 -----------------------------------------------------------------------------------------		
-		
-		
-		
-		
 		
 		
 		
