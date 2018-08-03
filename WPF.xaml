@@ -1,0 +1,59 @@
+-----------------------------------------------------------------------
+App.xaml
+1.automatically generated.
+2.property-StartupUri:  instructs which Window or Page to start up when the application is launched.
+                        can simply be changed.
+                        In some situations, you want more control over how and when the first window is displayed.
+                            In this case, you can remove the StartupUri property and value and then do it all from Code-Behind instead.
+                            
+
+
+-----------------------------------------------------------------------
+TextBlock
+    <LineBreak /> same as \n
+    <TextBlock TextTrimming="CharacterEllipsis/WordEllipsis" /> same as ...
+    <TextBlock TextWrapping="wrap" />   same as automatic linebreak
+TextBlock with <Bold>bold</Bold>, <Italic>italic</Italic> and <Underline>underlined</Underline> text.
+This text has a <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://www.google.com">link</Hyperlink> in it.
+private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+{
+	System.Diagnostics.Process.Start(e.Uri.AbsoluteUri);
+}    
+TextBlock tb = new TextBlock();
+tb.TextWrapping = TextWrapping.Wrap;
+tb.Margin = new Thickness(10);
+tb.Inlines.Add("An example on ");
+tb.Inlines.Add(new Run("the TextBlock control ") { FontWeight = FontWeights.Bold });
+tb.Inlines.Add("using ");
+-----------------------------------------------------------------------
+Label vs. TextBlock
+The TextBlock only allows you to render a text string, while the Label also allows you to:
+1.specify a border
+2.render other ocntrols, e.g. an image
+3.use templated content through the contentTemplate property
+4.use access keys to give focus to relate controls.
+<StackPanel Margin="10">
+        <Label Content="_Name:" Target="{Binding ElementName=txtName}" />
+        <TextBox Name="txtName" />
+        <Label Content="_Mail:" Target="{Binding ElementName=txtMail}" />
+        <TextBox Name="txtMail" />
+        <Label Content="_Password:" Target="{Binding ElementName=txtPassword}" />
+        <TextBox Name="txtPassword" />
+</StackPanel>       
+-----------------------------------------------------------------------    
+TextBox
+AcceptsReturn="True"
+TextWrapping="Wrap"
+SpellCheck.IsEnable="True"
+
+
+
+
+
+
+
+
+
+
+
+
