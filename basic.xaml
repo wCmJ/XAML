@@ -34,6 +34,11 @@ public MainWindow()
     InitializeComponent();
     DataContext = Employee.GetEmployee();
 }
+
+Structure:
+	XAML									.CS
+{Binding Name}						DataContext = Employee.GetEmployee()
+{Binding Title}
 -----------------------------------------------------------------------------------------   two-way data binding
 <StackPanel>
         <ComboBox Name = "comboBox"  Margin = "50" Width = "100">
@@ -49,6 +54,13 @@ public MainWindow()
          Background = "{Binding ElementName = comboBox, Path = SelectedItem.Content}">
         </TextBox>
 </StackPanel>
+
+structure:
+StackPanel 	-> ComboBox -> ComboBoxItem
+	   				   	-> ComboBoxItem
+					   	-> ComboBoxItem
+	   	   	-> TextBox  -> Text {Binding ElementName = ComboBox, Path = SelectedItem.Content}
+		       		   	-> Background {Binding ElementName = ComboBox, Path = SelectedItem.Content}
 -----------------------------------------------------------------------------------------   event-handling
 <Grid>
         <TextBox Name = "textBox1" TextWrapping = "Wrap" Margin = "10" Grid.Row = "7">
@@ -154,7 +166,7 @@ namespace XAMLMarkupExtension {
 	</Button>	
 </Grid>		
 		
-		
+-----------------------------------------------------------------------------------------		
 		
 		
 		
