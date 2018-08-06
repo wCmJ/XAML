@@ -55,7 +55,54 @@ Canvas: Canvas.Left/Canvas.Right/Canvas.Top/Canvas.Bottom
 			the element with the higher z-index overlaps the ones with the lower values.
 			if two values are identical, the last defined element wins.
 WarpPanel: 	will position each of its child controls next to the other, horizontally or vertically, until there is no more room, where it will wrap to the next line and then continue.
-StackPanel:	doesn't wrap the content, it stretches it content in one direction			
+StackPanel:	doesn't wrap the content, it stretches its content in one direction			
+Grid:	A Grid can contain multiple rows and columns.
+<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*" />
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="1*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="2*" />
+			<RowDefinition Height="1*" />
+			<RowDefinition Height="1*" />
+		</Grid.RowDefinitions>
+
+
+<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />		take up the rest
+            <ColumnDefinition Width="Atuo" /> 	Width will determined by the length of the text.
+            <ColumnDefinition Width="100" />	take up 100 pixels
+        </Grid.ColumnDefinitions>
+a width of 2*, which basically means that it uses twice the amount of space as the rows and columns with a width of 1* (or just * - that's the same)
+In a Grid where one or several columns(or rows) have a variable(star) width, they automaticlly get to share the width/height not already used by the columns/rows which uses an absolute or Auto width/height
+priority: 	Auto == absolute > *
+			determined by turn
+
+-----------------------------------------------------------------------
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
+        <GridSplitter Grid.Column="1" Width="5"  HorizontalAlignment="Left"/>
+        <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
+    </Grid>
+HorizontalAlignment specifys the direction of move. default value is right.
+
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <TextBlock Grid.Column="2" FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Right side</TextBlock>
+    </Grid>
+also use HorizontalAlignment
 
 
 
