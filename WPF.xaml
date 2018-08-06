@@ -46,8 +46,16 @@ AcceptsReturn="True"
 TextWrapping="Wrap"
 SpellCheck.IsEnable="True"
 
-
-
+-----------------------------------------------------------------------
+Canvas: Canvas.Left/Canvas.Right/Canvas.Top/Canvas.Bottom
+			the position relative to the four edges of the canvas.
+			If not specified, gets default value. left-top.
+		Canvas.ZIndex
+			default value is 0.
+			the element with the higher z-index overlaps the ones with the lower values.
+			if two values are identical, the last defined element wins.
+WarpPanel: 	will position each of its child controls next to the other, horizontally or vertically, until there is no more room, where it will wrap to the next line and then continue.
+StackPanel:	doesn't wrap the content, it stretches it content in one direction			
 
 
 
