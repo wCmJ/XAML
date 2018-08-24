@@ -1,0 +1,40 @@
+Syntax for resources in WPF as follows:
+    <elementName propertyName="{markupExtension keyName}">
+        <!--Content-->
+    </elementName>
+    
+    elementName: Name of the element that uses the resource
+    propertyName: name of the property that takes its value from the resource
+    markupExtension: define type of resource    ----    StaticResource      DynamicResource
+    keyName: key name of the resource, which is unique string to identify the resource
+    
+Static Resource:
+    the value of StaticResource is determined at the time of loading
+    <Grid.Resources>  
+        <SolidColorBrush x:Key="lblbgcolor" Color="Blue"/>  
+    </Grid.Resources>  
+    <Label Name="lbl" Margin="71,44,77,0" Background="{StaticResource lblbgcolor}" Height="49" /> 
+    Grid control uses the Resources property(Grid.Resources) to define resource.
+    
+Dynamic Resource:
+    the value of property we want to change at run time.
+    <Window.Resources>  
+        <SolidColorBrush x:Key="brush" Color="Red" />  
+    </Window.Resources>  
+    <Button x:Name="btn" Content="Click Me" Click="Button_Click" Background="{DynamicResource brush}" Height="100" Width="100" /> 
+    private void Button_Click(object sender, RoutedEventArgs e)  
+    {  
+        this.btn.SetResourceReference(BackgroundProperty, "brush");  
+    } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
