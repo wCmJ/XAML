@@ -1,0 +1,37 @@
+WPF:  Windows Presentation Foundation
+
+UWP:  universal Windows Platform
+    whenever you create a new UWP Application in Visual Studio, you will find some namespaces in the designer code of XAML.
+
+that URL are not URLs, they are UR, which stands for Uniform Resource Indicator.
+URI is used to define a namespace that we can use further in our document of the app.
+
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    this schema defines all UI(User Interface) components like button, textblock, etc.
+
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"      
+    all of the rules of XAML in general are defined at this schema. 
+    From rules you can assume that rules which have to be followed while writing UI in XAML.
+    
+xmlns:local="using:---name of application---"
+    such as:    xmlns:local="clr-namespace:RealPresenceDesktop.View"
+    this is a local namespace.
+    you can reference your own local classes here by using this namespace in application.
+    
+xmlns : d = "http://schemas.microsoft.com/expression/blend/2008 "
+xmlns : mc = " http://schemas.openxmlformats.org/markup-compatibility/2006 "
+    xmlns:d and xmlns:mc are the schemas used to represent the design view of application.
+    design view is the designer area of application.
+    
+mc : Ignorable = " d "
+    if you want to ignore some namespace on runtime, 
+    put that namespace in double quotes as here "d" will be ignored on runtime that has been defined already on the fourth line.
+    this option exists here because of xmlns:mc namespace.
+    
+    
+    
+    
+    
+    
+    
+    
