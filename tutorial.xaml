@@ -1,0 +1,41 @@
+XAML can create and instantiate obects as a typically declarative language.
+Objects can be:
+    Containers(stack panel, dock panel)
+    UI elements/controls(Button, TextBox, etc.)
+    Resource Dictionaries
+    
+Resources:    
+    Resources are normally definitions connected with some object that you just anticipate to use more often than once.
+    it is the ability to store data locally for controls or for the current window or globally for the entire applications
+    
+Templates:    
+    A template describes the overall look and visual appearance of a control.For each control, there is a default template associated with it 
+    which gives the appearance to that control. 
+    In XAML, you can easily create your own templates when you want to customize the visual behavior and visual appearance of a control.
+    With templates, you can access more parts of a control than in styles. You can specify both existing and niw behavior of a control.
+
+Animations and Transformations:
+    Animations and transformations inside the Windows Runtime can improve your XAML application by building interactivity and movement.
+    You can easily integrate the interactive look and feel in your XAML application by using the animations from Windows Runtime animation library.
+    
+System.Object   ->  
+    System.Windows.Threading.DispatcherObject   ->
+        System.Windows.DependencyObject ->
+            System.Windows.Media.Visual ->
+                System.Windows.UIElement    ->
+                    System.Windows.FrameworkElement ->
+                        System.Windows.Controls.Control
+                        
+Controls:
+Button:
+
+Calendar:
+
+CheckBox:
+
+ComboBox:
+
+ContextMenu:
+
+DataGrid:
+
